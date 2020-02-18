@@ -2,8 +2,9 @@ import sqlite3
 from django.shortcuts import render
 from libraryapp.models import Library
 from ..connection import Connection
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def library_list(request):
     if request.method == 'GET':
         with sqlite3.connect(Connection.db_path) as conn:

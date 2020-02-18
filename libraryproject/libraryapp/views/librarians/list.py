@@ -2,8 +2,9 @@ import sqlite3
 from django.shortcuts import render
 from libraryapp.models import Librarian
 from ..connection import Connection
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def librarian_list(request):
     with sqlite3.connect(Connection.db_path) as conn:
         conn.row_factory = sqlite3.Row
