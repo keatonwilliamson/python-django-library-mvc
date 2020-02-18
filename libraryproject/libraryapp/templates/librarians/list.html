@@ -10,7 +10,7 @@
 
     <ol>
     {% for librarian in all_librarians %}
-        <li>{{ librarian.first_name }} {{ librarian.last_name }}</li>
+    <a href="{% url 'libraryapp:librarian' librarian.id %}">{{ librarian.first_name }} {{ librarian.last_name }}</a>
     {% endfor %}
     </ol>
   </body>

@@ -18,4 +18,5 @@ urlpatterns = [
     path('libraries/<int:library_id>/', library_details, name='library'),
 
     path('librarians/', librarian_list, name='librarians'),
+    path('librarians/<int:librarian_id>/', librarian_details, name='librarian'),
 ]
