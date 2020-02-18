@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bangazon</title>
+  </head>
+  <body>
+    <h1>Inventory Book</h1>
+
+
+    <form action="{% url 'libraryapp:books' %}" method="post">
+      {% csrf_token %}
+      <fieldset>
+          <label for="title">Title: </label>
+          <input id="title" type="text" name="title">
+      </fieldset>
+      <fieldset>
+          <label for="author">Author: </label>
+          <input id="author" type="text" name="author">
+      </fieldset>
+      <fieldset>
+          <label for="year_published">Year of publication: </label>
+          <input id="year_published" type="number" name="year_published">
+      </fieldset>
+      <fieldset>
+          <label for="isbn">ISBN: </label>
+          <input id="isbn" type="text" name="isbn">
+      </fieldset>
+      <fieldset>
+          <label for="location">Library: </label>
+          <select id="location" type="text" name="location">
+                {% for library in all_libraries %}
+                    <option value="{{ library.id }}">{{ library.title }}</option>
+                {% endfor %}
+          </select>
+      </fieldset>
+
+      <input type="submit" value="Add It" />
+    </form>
+  </body>
+</html>
