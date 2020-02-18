@@ -1,20 +1,12 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Library</title>
-  </head>
-  <body>
-    <h1>Libraries</h1>
-
-    <ol>
-    {% for library in all_libraries %}
-    <li>
-        <a href="{% url 'libraryapp:library' library.id %}"> {{ library.title }} </a>
-        {{library.address}}
-    </li>
-    {% endfor %}
-    </ol>
-  </body>
-</html>
+{% extends 'shared/base.html' %}
+    {% block content %}
+        <h1>Libraries</h1>
+        <ol>
+            {% for library in all_libraries %}
+            <li>
+                <a href="{% url 'libraryapp:library' library.id %}"> {{ library.title }} </a>
+                {{library.address}}
+            </li>
+            {% endfor %}
+        </ol>
+    {% endblock %}

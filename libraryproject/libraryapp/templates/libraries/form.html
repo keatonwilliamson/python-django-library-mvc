@@ -1,25 +1,16 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Bangazon</title>
-  </head>
-  <body>
-    <h1>Create Library</h1>
-
-
-    <form action="{% url 'libraryapp:libraries' %}" method="post">
-      {% csrf_token %}
-      <fieldset>
-          <label for="title">Title: </label>
-          <input id="title" type="text" name="title">
-      </fieldset>
-      <fieldset>
-          <label for="address">Address: </label>
-          <input id="address" type="text" name="address">
-      </fieldset>
-      <input type="submit" value="Add It" />
-    </form>
-  </body>
-</html>
+{% extends 'shared/base.html' %}
+    {% block content %}
+        <h1>Create Library</h1>
+        <form action="{% url 'libraryapp:libraries' %}" method="post">
+        {% csrf_token %}
+            <fieldset>
+                <label for="title">Title: </label>
+                <input id="title" type="text" name="title">
+            </fieldset>
+            <fieldset>
+                <label for="address">Address: </label>
+                <input id="address" type="text" name="address">
+            </fieldset>
+            <input type="submit" value="Add It" />
+        </form>
+    {% endblock %}

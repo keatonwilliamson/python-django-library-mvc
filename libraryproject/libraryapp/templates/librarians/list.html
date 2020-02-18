@@ -1,17 +1,9 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Library</title>
-  </head>
-  <body>
-    <h1>Librarians</h1>
-
-    <ol>
-    {% for librarian in all_librarians %}
-    <a href="{% url 'libraryapp:librarian' librarian.id %}">{{ librarian.first_name }} {{ librarian.last_name }}</a>
-    {% endfor %}
-    </ol>
-  </body>
-</html>
+{% extends 'shared/base.html' %}
+    {% block content %}
+        <h1>Librarians</h1>
+        <ol>
+            {% for librarian in all_librarians %}
+            <a href="{% url 'libraryapp:librarian' librarian.id %}">{{ librarian.first_name }} {{ librarian.last_name }}</a>
+            {% endfor %}
+        </ol>
+    {% endblock %}

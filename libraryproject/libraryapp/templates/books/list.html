@@ -1,20 +1,16 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Library</title>
-  </head>
-  <body>
-    <h1>Books</h1>
+{% extends 'shared/base.html' %}
 
+    {% block content %}
+
+    <h1>Books</h1>
+      <a href="{% url 'libraryapp:book_form' %}">Add Book to Inventory</a>
     <ol>
     {% for book in all_books %}
-<li>
-    <a href="{% url 'libraryapp:book' book.id %}"> {{ book.title }} </a>
-    by {{book.author}} published in {{book.year_published}}
-</li>
+      <li>
+          <a href="{% url 'libraryapp:book' book.id %}"> {{ book.title }} </a>
+          by {{book.author}} published in {{book.year_published}}
+      </li>
     {% endfor %}
     </ol>
-  </body>
-</html>
+
+{% endblock %}
