@@ -1,21 +1,35 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Library</title>
-  </head>
-  <body>
-    <h1>{{ book.title }}</h1>
-    <h2>By {{ book.author }}</h2>
+</head>
 
-    <div>Published in {{ book.year_published }}</div>
-    <div>ISBN: {{ book.isbn }}</div>
-    
-    <form action="{% url 'libraryapp:book' book.id %}" method="POST">
-    {% csrf_token %}
-    <input type="hidden" name="actual_method" value="DELETE">
-    <button>Delete</button>
-</form>
-  </body>
+<body>
+
+    <section id="book-details">
+        <h1>{{ book.title }}</h1>
+        <h2>By {{ book.author }}</h2>
+
+        <div>Published in {{ book.year_published }}</div>
+        <div>ISBN: {{ book.isbn }}</div>
+    </section>
+
+    <section id="book-actions" style="display:flex;">
+        <form action="{% url 'libraryapp:book' book.id %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="actual_method" value="DELETE">
+            <button>Delete</button>
+        </form>
+
+        <form action="{% url 'libraryapp:book_edit_form' book.id %}" method="GET">
+            {% csrf_token %}
+            <button>Edit</button>
+        </form>
+    </section>
+
+</body>
+
 </html>
