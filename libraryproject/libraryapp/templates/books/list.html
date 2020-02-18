@@ -1,0 +1,21 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Library</title>
+  </head>
+  <body>
+    <h1>Books</h1>
+
+    <ol>
+    {% for book in all_books %}
+        <li>
+            {{ book.title }}
+            by {{book.author}}
+            published in {{book.year_published}}
+        </li>
+    {% endfor %}
+    </ol>
+  </body>
+</html>
