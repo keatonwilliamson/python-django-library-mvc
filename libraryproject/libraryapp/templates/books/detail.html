@@ -1,14 +1,16 @@
 {% extends 'shared/base.html' %}
 
     {% block content %}
-    
-    <section id="book-details">
-        <h1>{{ book.title }}</h1>
-        <h2>By {{ book.author }}</h2>
 
-        <div>Published in {{ book.year_published }}</div>
-        <div>ISBN: {{ book.isbn }}</div>
-    </section>
+<section id="book-details">
+    <h1>{{ book.title }}</h1>
+    <h2>By {{ book.author }}</h2>
+
+    <div>Published in {{ book.year_published }}</div>
+    <div>ISBN: {{ book.isbn }}</div>
+    <div>Located in the {{ book.location.title }}</div>
+    <div>Registered by {{ book.librarian.first_name }} {{ book.librarian.last_name }}</div>
+</section>
 
     <section id="book-actions" style="display:flex;">
         <form action="{% url 'libraryapp:book' book.id %}" method="POST">
