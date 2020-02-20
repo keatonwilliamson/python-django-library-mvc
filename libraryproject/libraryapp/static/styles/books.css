@@ -1,0 +1,22 @@
+.books {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.book {
+    flex-basis: 20%;
+    padding: 0 2em 0.5em 2em;
+    border: 1px solid gray;
+    margin: 1em;
+    padding: 1.5em;
+}
+
+.book__title {
+    font-size: 1.1em;
+}
+
+.book__description {
+    font-size: 0.75em;
+}

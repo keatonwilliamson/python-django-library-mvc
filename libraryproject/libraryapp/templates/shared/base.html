@@ -6,33 +6,31 @@
     <meta charset="utf-8">
     <title>Library</title>
 
-    <style>
-        .navList {
-            list-style-type: none;
-            display: flex;
-            border: 1px solid lightgray;
-            padding: 1em;
-        }
+    <link rel="stylesheet" href="{% static 'styles/base.css' %}" />
 
-        .navList__route {
-            margin: 0 0.5em;
-        }
-    </style>
+    {% block css %}
+    {% endblock %}
 </head>
 
 <body>
 
     <nav id="site-nav">
         <ol class="navList">
+            <li class="navList__route"><a href="{% url 'libraryapp:home' %}">Home</a></li>
             <li class="navList__route"><a href="{% url 'libraryapp:libraries' %}">Libraries</a></li>
             <li class="navList__route"><a href="{% url 'libraryapp:books' %}">Books</a></li>
             <li class="navList__route"><a href="{% url 'libraryapp:librarians' %}">Librarians</a></li>
+            <li class="navList__route"><a href="{% url 'libraryapp:logout' %}">Logout</a></li>
         </ol>
     </nav>
 
-    {% block content %}
-    {% endblock %}
+    <main class="main-content">
+        {% block content %}
+        {% endblock %}
+    </main>
 
+    {% block scripts %}
+    {% endblock scripts %}
 </body>
 
 </html>
